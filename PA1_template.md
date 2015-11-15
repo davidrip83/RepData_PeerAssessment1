@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 This document describes analyses of data from a personal activity monitoring device for the first peer assessment of the reproducible research class.
 You can download the data [here](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip "Here").
 
@@ -50,7 +55,7 @@ steps_by_date <- summarise(by_date,
 hist(steps_by_date$total_steps, main = "Histogram of total steps per day for all observations", xlab ="Total steps per day", ylab = "Count of days")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 This histogram depicts the count of days for each total number of steps per day across all observations. Note that this totals all observations
 
@@ -95,7 +100,7 @@ steps_by_interval <- summarise(by_interval,
 plot(steps_by_interval, type ='l', main = "Average steps per interval", xlab = "5-minute interval", ylab ="Average steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 This plot shows that there are about 4 spikes of activity during the day. We don't know if the first interval corresponds to the morning. It does look like the first spike is about 2x-3x as large as the next two spikes.
 
@@ -203,7 +208,7 @@ steps_by_date_no_NA <- aggregate(by_date_no_NA$steps, by=list(Category=by_date_n
 hist(steps_by_date_no_NA$x, main = "Histogram of total steps per day", xlab ="Total steps per day", ylab = "Count of days")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png) 
 
 This histogram looks pretty similar to the histogram with the N/A's. The main difference is that the count of days with less than 5,000 steps per day is a lot smaller. That makes sense, as the N/As were counted as 0 steps per day.
 
@@ -268,6 +273,6 @@ ggplot(data=amd_no_NA_weekday, aes(x=interval, y=steps)) +
     geom_line()
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-20-1.png) 
+![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20-1.png) 
 
 From the plot it looks like the weekend activities start at later intervals.
